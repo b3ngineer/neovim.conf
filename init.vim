@@ -1,13 +1,17 @@
 " key mappings that affect everything
 let mapleader = ";"
 
-" pre-settings for plugins
+" plugin variables
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:onedark_terminal_italics = 1 
 let g:ale_sign_column_always = 1
 let g:ale_fixers = { 'javascript': ['eslint'] }
 let g:ale_fix_on_save = 1
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let NERDTreeQuitOnOpen = 1
 
 "Start dein Scripts-----------------------------
 if &compatible
@@ -92,11 +96,5 @@ set expandtab
 set smartindent
 set colorcolumn=80
 
-"" plugin settings that happen after inclusion
-
-" NERDTree
+" key bindings
 nnoremap <Leader>f :NERDTreeToggle<Enter>
-let NERDTreeAutoDeleteBuffer = 1
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-let NERDTreeQuitOnOpen = 1
