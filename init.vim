@@ -1,30 +1,15 @@
-" key mappings that affect everything
-let mapleader = ";"
-
-" plugin variables
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:onedark_terminal_italics = 1 
-let g:ale_sign_column_always = 1
-let g:ale_fixers = { 'javascript': ['eslint'] }
-let g:ale_fix_on_save = 1
-let NERDTreeAutoDeleteBuffer = 1
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-let NERDTreeQuitOnOpen = 1
-
 "Start dein Scripts-----------------------------
 if &compatible
   set nocompatible               " Be iMproved
 endif
 
-set runtimepath+=/Users/benharris/.config/nvim/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.config/nvim/repos/github.com/Shougo/dein.vim
 
-if dein#load_state('/Users/benharris/.config/nvim')
-  call dein#begin('/Users/benharris/.config/nvim')
+if dein#load_state('~/.config/nvim')
+  call dein#begin('~/.config/nvim')
 
   " Let dein manage dein
-  call dein#add('/Users/benharris/.config/nvim/repos/github.com/Shougo/dein.vim')
+  call dein#add('~/.config/nvim/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here:
   call dein#add('Shougo/neosnippet.vim')
@@ -43,9 +28,9 @@ if dein#load_state('/Users/benharris/.config/nvim')
   " Theme
   call dein#add('joshdick/onedark.vim')
 
-  " NERDTtree toggled with <leader>f ; lazy loaded
-  call dein#add('scrooloose/nerdtree', {'on_cmd': 'NERDTreeToggle'})
-  call dein#add('Xuyuanp/nerdtree-git-plugin', {'on_cmd': 'NERDTreeToggle'})
+  " NERDTtree toggled with <leader>f 
+  call dein#add('scrooloose/nerdtree')
+  call dein#add('Xuyuanp/nerdtree-git-plugin')
 
   call dein#end()
   call dein#save_state()
@@ -55,9 +40,9 @@ filetype plugin indent on
 syntax enable
 
 " If you want to install not installed plugins on startup.
-if dein#check_install()
-  call dein#install()
-endif
+" if dein#check_install()
+"  call dein#install()
+" endif
 
 "End dein Scripts-------------------------
 
@@ -81,12 +66,32 @@ endif
 let g:airline_theme='onedark'
 colorscheme onedark
 
+let mapleader = ";"
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:onedark_terminal_italics = 1 
+let g:ale_sign_column_always = 1
+let g:ale_fixers = { 'javascript': ['prettier', 'eslint'] }
+let g:ale_fix_on_save = 1
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
+let g:ale_lint_on_enter = 0 
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let NERDTreeQuitOnOpen = 1
+let NERDTreeShowHidden = 1
+
 " basic settings
-set nobackup
+set encoding=utf8
 set title
 set number
 set history=1024
 set showcmd
+set nobackup 
+set autoread
+set undofile
+au FocusGained,BufEnter * :silent! !
 
 " indentation
 set shiftwidth=2
@@ -94,7 +99,18 @@ set softtabstop=2
 set tabstop=2
 set expandtab
 set smartindent
+set copyindent
 set colorcolumn=80
+
+let &showbreak="↪ "
+
+" Splits
+noremap <C-j> <C-W>j
+noremap <C-k> <C-W>k
+noremap <C-h> <C-W>h
+noremap <C-l> <C-W>l
+set splitbelow
+set splitright
 
 " key bindings
 nnoremap <Leader>f :NERDTreeToggle<Enter>
