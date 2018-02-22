@@ -83,6 +83,7 @@ let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let NERDTreeQuitOnOpen = 1
 let NERDTreeShowHidden = 1
+let NERDTreeIgnore=['\.git$[[dir]]', 'node_modules$[[dir]]']
 
 " basic settings
 set encoding=utf8
