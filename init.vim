@@ -68,10 +68,12 @@ colorscheme onedark
 
 let mapleader = ";"
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#show_splits = 0
 let g:airline_powerline_fonts = 1
 let g:onedark_terminal_italics = 1 
 let g:ale_sign_column_always = 1
-let g:ale_fixers = { 'javascript': ['prettier', 'eslint'] }
+let g:ale_fixers = { 'javascript': ['prettier', 'eslint'], 'json': ['prettier'] }
 let g:ale_fix_on_save = 1
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
@@ -114,3 +116,7 @@ set splitright
 
 " key bindings
 nnoremap <Leader>f :NERDTreeToggle<Enter>
+nnoremap <Leader>t :split term://zsh<Enter>i
+
+" Terminal
+:tnoremap <Esc> <C-\><C-n>
